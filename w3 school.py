@@ -739,3 +739,34 @@ mycursor.execute(sql, val)
 mydb.commit()
 
 print("1 record inserted, ID:", mycursor.lastrowid)
+
+#4-3 Python MySQL Select From
+
+#a
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+  
+#b  
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT name, address FROM customers")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+  
+#c
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers")
+
+myresult = mycursor.fetchone()
+
+print(myresult)
