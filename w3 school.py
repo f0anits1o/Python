@@ -635,3 +635,58 @@ x = {
 
 # sort the result alphabetically by keys:
 print(json.dumps(x, indent=4, sort_keys=True))
+
+
+##############################################
+# MySQL and PYTHON
+##############################################
+
+#1
+import mysql.connector
+
+
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="#k41W146)"
+)
+
+print(mydb)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW DATABASES")
+
+for x in mycursor:
+  print(x)
+  
+  
+# 2
+import mysql.connector
+
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="#k41W146)",
+  database="e_commerce"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW TABLES")
+
+for x in mycursor:
+  print(x)
+  
+#3 create table
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
+
+mycursor.execute("select * from paiment")
+for x in mycursor:
+  print(x)
+
+#4 
