@@ -457,3 +457,12 @@ for x in (car1, boat1, plane1):
   print(x.brand)
   print(x.model)
   x.move()
+  
+########################################################
+# module
+########################################################  
+  
+import mymodule
+
+a = mymodule.person1["age"]
+print(a)
