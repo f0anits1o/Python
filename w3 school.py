@@ -689,4 +689,53 @@ mycursor.execute("select * from paiment")
 for x in mycursor:
   print(x)
 
-#4 
+#4 Python MySQL Insert Into Table
+
+#4-1
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = ("John", "Highway 21")
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")
+
+#4-2 insert multiple raw
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = [
+  ('Peter', 'Lowstreet 4'),
+  ('Amy', 'Apple st 652'),
+  ('Hannah', 'Mountain 21'),
+  ('Michael', 'Valley 345'),
+  ('Sandy', 'Ocean blvd 2'),
+  ('Betty', 'Green Grass 1'),
+  ('Richard', 'Sky st 331'),
+  ('Susan', 'One way 98'),
+  ('Vicky', 'Yellow Garden 2'),
+  ('Ben', 'Park Lane 38'),
+  ('William', 'Central st 954'),
+  ('Chuck', 'Main Road 989'),
+  ('Viola', 'Sideway 1633')
+]
+
+mycursor.executemany(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "was inserted.")
+
+# Get Inserted ID
+
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = ("Michelle", "Blue Village")
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print("1 record inserted, ID:", mycursor.lastrowid)
