@@ -896,3 +896,24 @@ mydb.commit()
 
 print(mycursor.rowcount, "record(s) affected")
 
+#5-8 Python MySQL Limit
+#a
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers LIMIT 5")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+  
+#c
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers LIMIT 5 OFFSET 2")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
